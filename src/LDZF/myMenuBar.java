@@ -16,7 +16,7 @@ public class myMenuBar extends JMenuBar {
 	/***
 	 * p
 	 */
-		// layout of the window
+		// layout of the menu bar
 			private BorderLayout layout = new BorderLayout(5, 5);
 		// size of the window
 			private int sizeY;
