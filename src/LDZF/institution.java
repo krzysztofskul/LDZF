@@ -3,12 +3,14 @@ package LDZF;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
@@ -27,7 +29,7 @@ public /*abstract*/ class institution extends JPanel {
 		protected String nameOfInstitution, announcement;
 		protected float budget = 0.00f;
 		protected JLabel labelNameOfInstitution = new JLabel(), labelBudget = new JLabel();
-		protected JTextField labelAnnouncement = new JTextField();
+		protected JLabel labelAnnouncement = new JLabel();
 		protected myButton buttonEnter;
 		
 	
@@ -65,9 +67,11 @@ public /*abstract*/ class institution extends JPanel {
 							this.panelTitle.add(this.labelNameOfInstitution, BorderLayout.WEST);
 						this.setBudget(1000000.00f);
 							this.panelTitle.add(this.labelBudget, BorderLayout.EAST);
-				// adding announcement field
-					this.add(labelAnnouncement, BorderLayout.CENTER);
-						this.labelAnnouncement.setHorizontalAlignment(JTextField.CENTER);
+				// adding and configuring announcement text field
+					this.add(labelAnnouncement, BorderLayout.CENTER);					
+						//this.labelAnnouncement.setLayout(new FlowLayout(FlowLayout.LEFT));
+						this.labelAnnouncement.setVerticalAlignment(SwingConstants.TOP);
+						this.labelAnnouncement.setHorizontalAlignment(SwingConstants.LEFT);
 						this.labelAnnouncement.setBorder(border);
 						this.labelAnnouncement.setPreferredSize(new Dimension(240,50));	
 						this.setAnnouncement("no announcements");
@@ -205,7 +209,7 @@ public /*abstract*/ class institution extends JPanel {
 				this.labelBudget.setText(String.format("%,.2f z³", this.getBudget()));
 			}
 	
-			public JTextField getLabelAnnouncement() {
+			public JLabel getLabelAnnouncement() {
 				return labelAnnouncement;
 			}
 	

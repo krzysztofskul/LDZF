@@ -4,10 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -24,9 +27,13 @@ public class myMenuBar_player extends JMenuBar {
 			private int sizeX;
 			private int sizeY;
 		// content of the menu
-			private myButton buttonPlayerAction = new myButton("PLAYER ACTION");
-			private JPanel panelName = new JPanel();
-			private JLabel labelName = new JLabel();
+			//menu button
+				private myButton buttonPlayerAction = new myButton("PLAYER ACTION");
+				private myMenuPlayer menu = new myMenuPlayer();
+
+			//name of the player
+				private JPanel panelName = new JPanel();
+				private JLabel labelName = new JLabel();
 	/***
 	 * c
 	 */
@@ -42,9 +49,11 @@ public class myMenuBar_player extends JMenuBar {
 				this.setBorder(null);
 				//this.setBackground(Color.WHITE);
 			/*
-			 * adding buttons and elements
+			 * adding buttons and elements to menu bar
 			 */
-				this.add(buttonPlayerAction, BorderLayout.WEST);
+				//this.add(buttonPlayerAction, BorderLayout.WEST);
+				this.add(menu, BorderLayout.WEST);
+
 				this.add(panelName, BorderLayout.CENTER);
 					panelName.setBackground(null);
 					panelName.setBorder(null);

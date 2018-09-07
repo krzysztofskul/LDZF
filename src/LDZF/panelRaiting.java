@@ -15,7 +15,7 @@ public class panelRaiting extends JPanel {
 		private JPanel 
 						panelForLEDs = new JPanel(), 
 						panelForIcon = new JPanel();
-		private BorderLayout layout = new BorderLayout(1 ,1);
+		private BorderLayout layout = new BorderLayout(1, 1);
 	
 	/**
 	 * constructors
