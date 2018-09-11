@@ -111,6 +111,7 @@ public class plot extends JPanel implements MouseListener {
 			// TODO Auto-generated method stub
 			LDZF.plotWindowInfo.setDataToShow(0, 0, 0, 0, 101);
 			LDZF.plotWindowInfo.setVisible(false);
+			
 		}
 		@Override
 		public void mousePressed(MouseEvent arg0) {

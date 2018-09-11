@@ -16,6 +16,7 @@ public class plotWindowInfo extends JWindow {
 		private JLabel labelPrestige = new JLabel();
 		private JLabel labelHealth = new JLabel();
 		private Color background = new Color(255,100,100,150);
+		
 	/**
 	 * c
 	 */
