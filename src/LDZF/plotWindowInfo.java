@@ -25,7 +25,7 @@ public class plotWindowInfo extends JWindow {
 			 * construction of window
 			 */
 				this.setSize(200, 100);
-				this.setLocation(10, 10);
+				//this.setLocation(10, 10);
 				this.setOpacity(.9f);
 				this.getContentPane().setBackground(background);
 				this.getRootPane().setBorder(new MatteBorder(1,1,1,1, Color.BLUE));
@@ -44,9 +44,12 @@ public class plotWindowInfo extends JWindow {
 	/**
 	 * m
 	 */
-		public void setDataToShow(float xPrice, int xPrestige,
+		public void setDataToShow(int xMouse, int yMouse,
+									float xPrice, int xPrestige,
 									int xHealth
 																) {
+			this.setLocation(xMouse, yMouse);
+			
 			this.labelPrice.setText("Cena: "+String.format("%,.2f", xPrice)+" z³");
 			this.labelPrestige.setText("Presti¿: "+Integer.toString(xPrestige)+" pkt.");
 			if (xHealth == 0) {

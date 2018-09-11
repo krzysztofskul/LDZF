@@ -98,7 +98,10 @@ public class plot extends JPanel implements MouseListener {
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			LDZF.plotWindowInfo.setDataToShow(this.price, this.prestige,
+			int xMouse = arg0.getXOnScreen()+5;
+			int yMouse = arg0.getYOnScreen()+25;
+			LDZF.plotWindowInfo.setDataToShow(xMouse, yMouse,
+												this.price, this.prestige,
 												this.health
 																		);
 			LDZF.plotWindowInfo.setVisible(true);
@@ -106,7 +109,7 @@ public class plot extends JPanel implements MouseListener {
 		@Override
 		public void mouseExited(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			LDZF.plotWindowInfo.setDataToShow(0, 0, 101);
+			LDZF.plotWindowInfo.setDataToShow(0, 0, 0, 0, 101);
 			LDZF.plotWindowInfo.setVisible(false);
 		}
 		@Override
