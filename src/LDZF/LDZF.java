@@ -9,6 +9,7 @@ public class LDZF {
 	 * parameters
 	 */
 		public static _mainWindow _mainWindow;
+		public static plotWindowInfo plotWindowInfo = new plotWindowInfo();
 		public static Color colorBaseBrown = new Color(102, 26, 0);
 		public static Color colorBasePapyrus = new Color(201,152,104);
 		
@@ -16,7 +17,19 @@ public class LDZF {
 		public static institution institutionCreditCompany = new institution("TOWARZYSTWO KREDYTOWE");
 		public static institution institutionKokolobolo = new institution("KOKOLOBOLO");
 		
-		public static player 	
+		public static plot 	// added in panelGame.java
+							piotrkowska02 = new plot("Piotrkowska", 2, 110, 100, 1000000.00f, 10),
+							piotrkowska04 = new plot("Piotrkowska", 4, 200, 100, 1000000.00f, 10),
+							piotrkowska06 = new plot("Piotrkowska", 6, 290, 100, 900000.00f, 9),
+							piotrkowska08 = new plot("Piotrkowska", 8, 380, 100, 900000.00f, 9),
+							piotrkowska10 = new plot("Piotrkowska", 10, 470, 100, 900000.00f, 9),
+							piotrkowska01 = new plot("Piotrkowska", 1, 110, 200, 1000000.00f, 10),
+							piotrkowska03 = new plot("Piotrkowska", 3, 200, 200, 1000000.00f, 10),
+							piotrkowska05 = new plot("Piotrkowska", 5, 290, 200, 900000.00f, 9),
+							piotrkowska07 = new plot("Piotrkowska", 7, 380, 200, 900000.00f, 9),
+							piotrkowska09 = new plot("Piotrkowska", 9, 470, 200, 900000.00f, 9);
+		
+		public static player 
 								// data base of players
 									Geyerowie = new player("Geyerowie"), 
 									Grohmanowie = new player("Grohmanowie"), 

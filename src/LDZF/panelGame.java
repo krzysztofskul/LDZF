@@ -41,7 +41,18 @@ public class panelGame extends JPanel {
 					containerForInstitutions.add(LDZF.institutionKokolobolo);
 				//adding map
 				this.add(containerForMap);
+					containerForMap.setLayout(null);
 					//add(mapOfLodz)
+						containerForMap.add(LDZF.piotrkowska01);
+						containerForMap.add(LDZF.piotrkowska02);
+						containerForMap.add(LDZF.piotrkowska03);
+						containerForMap.add(LDZF.piotrkowska04);
+						containerForMap.add(LDZF.piotrkowska05);
+						containerForMap.add(LDZF.piotrkowska06);
+						containerForMap.add(LDZF.piotrkowska07);
+						containerForMap.add(LDZF.piotrkowska08);
+						containerForMap.add(LDZF.piotrkowska09);
+						containerForMap.add(LDZF.piotrkowska10);
 				//adding players
 				this.add(containerForPlayers);
 					//add(playerFirst)
