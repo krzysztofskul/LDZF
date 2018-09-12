@@ -29,7 +29,7 @@ public class plotWindowInfo extends JWindow {
 				//this.setLocation(10, 10);
 				this.setOpacity(.9f);
 				this.getContentPane().setBackground(background);
-				this.getRootPane().setBorder(new MatteBorder(1,1,1,1, Color.BLUE));
+				this.getRootPane().setBorder(new MatteBorder(1,1,0,0, Color.BLUE));
 				this.getContentPane().setLayout(new GridLayout(3,0));
 			/*
 			 * setting content
@@ -46,7 +46,7 @@ public class plotWindowInfo extends JWindow {
 	 * m
 	 */
 		public void setDataToShow(int xMouse, int yMouse,
-									float xPrice, int xPrestige,
+									double xPrice, int xPrestige,
 									int xHealth
 																) {
 			this.setLocation(xMouse, yMouse);

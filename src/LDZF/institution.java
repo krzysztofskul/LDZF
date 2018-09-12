@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -11,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
@@ -22,7 +25,9 @@ public /*abstract*/ class institution extends JPanel {
 	
 		protected int sizeX, sizeY;
 			protected Dimension dimension;
-		protected Border border;
+		protected Border 
+						border = new MatteBorder(1,1,1,1, Color.BLACK),
+						borderLightning = new MatteBorder(2,1,1,1, Color.YELLOW);
 		protected BufferedImage imageBackground, imageButtonEnter;
 			protected File filePath_imageBackground, filePath_imageButtonEnter;
 		protected JPanel panelTitle = new JPanel();
@@ -48,7 +53,7 @@ public /*abstract*/ class institution extends JPanel {
 			/*
 			 * setting look (border, background..)
 			 */
-				this.setBorder(new MatteBorder(1,1,1,1, Color.BLACK));
+				this.setBorder(border);
 				this.setPanelTitle();
 				//this.setImageBackground();
 				//this.setImageButtonEnter();
@@ -213,8 +218,8 @@ public /*abstract*/ class institution extends JPanel {
 				return labelAnnouncement;
 			}
 	
-			public void setLabelAnnouncement() {
-				this.labelAnnouncement.setText(this.getAnnouncement());
+			private void setLabelAnnouncement() {			
+				this.labelAnnouncement.setText(this.getAnnouncement());	
 			}
 	
 			public myButton getButtonEnter() {

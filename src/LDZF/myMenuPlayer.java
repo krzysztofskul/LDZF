@@ -14,9 +14,9 @@ public class myMenuPlayer extends JMenu implements ActionListener {
 	/**
 	 * parameters/features
 	 */
-		private JMenuItem menuItem_1 = new JMenuItem("BUY PLOT");
-		private JMenuItem menuItem_2 = new JMenuItem("SOLD PLOT");
-		private JMenuItem menuItem_3 = new JMenuItem("action 3");
+		private JMenuItem menuItem_1 = new JMenuItem("KUP DZIA£KÊ");
+		private JMenuItem menuItem_2 = new JMenuItem("SPRZEDAJ DZIA£KÊ");
+		private JMenuItem menuItem_3 = new JMenuItem("ZAKOÑCZ RUNDÊ");
 	/**
 	 * constructors
 	 */
@@ -45,17 +45,22 @@ public class myMenuPlayer extends JMenu implements ActionListener {
 			Object source = arg0.getSource();
 			if (source == menuItem_1) {
 				//TO DEL TEST
-				System.out.println("pressed menuItem_1 by player:"+this.getParent().getParent().getName());
-				LDZF.institutionCityHall.setAnnouncement("pressed menuItem_1 by player:"+this.getParent().getParent().getName());
+				//System.out.println("pressed menuItem_1 by player:"+this.getParent().getParent().getName());
+				//LDZF.institutionCityHall.setAnnouncement("pressed menuItem_1 by player:"+this.getParent().getParent().getName());		
 				// do action: BUY PLOT
-					//...
+					if (LDZF.plotRadioButtonsGroup.getSelection() != null) {
+						LDZF.setPlayerActiveNow((player) this.getParent().getParent());
+						LDZF.playerActiveNow.buyPlot();
+					} else {
+						LDZF.institutionCityHall.setAnnouncement("Wybierz najpierw dzia³kê do kupienia..");
+					}
 			} else if (source == menuItem_2) {
 				//TO DEL TEST
 				System.out.println("pressed menuItem_2 by player:"+this.getParent().getParent().getName());
 				LDZF.institutionCityHall.setAnnouncement("pressed menuItem_2 by player:"+this.getParent().getParent().getName());
 				// do action: ELL PLOT
 					//...
-			}else if (source == menuItem_3) {
+			} else if (source == menuItem_3) {
 				//TO DEL TEST
 				System.out.println("pressed menuItem_3 by player:"+this.getParent().getParent().getName());
 				LDZF.institutionCityHall.setAnnouncement("pressed menuItem_3 by player:"+this.getParent().getParent().getName());

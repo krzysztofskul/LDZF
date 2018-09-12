@@ -2,8 +2,23 @@ package LDZF;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.ButtonGroup;
 
 public class LDZF {
+	
+	/**
+	 * notes
+	 * 
+	 * 			at startup: player should choose which players should be in game
+	 * 
+	 * 			game over:
+	 * 					- when player's family die (no winner)
+	 * 					- when player will be a bankrupt (no winner)
+	 * 					- when player will be multimillionaire (winner)
+	 */
 	
 	/***
 	 * parameters
@@ -29,6 +44,10 @@ public class LDZF {
 							piotrkowska07 = new plot("Piotrkowska", 7, 380, 200, 900000.00f, 9),
 							piotrkowska09 = new plot("Piotrkowska", 9, 470, 200, 900000.00f, 9);
 		
+		public static Map<Integer, plot> mapOfPlots = new HashMap<Integer, plot>();
+		
+		public static ButtonGroup plotRadioButtonsGroup = new ButtonGroup();
+		
 		public static player 
 								// data base of players
 									Geyerowie = new player("Geyerowie"), 
@@ -47,19 +66,46 @@ public class LDZF {
 									player03 = Heinzelowie, 
 									player04 = Herbstowie,
 								// active player
-									playerActiveNow;	
+									playerActiveNow = player01;	
 	/***
 	 * constructors
 	 */
 	
 		public LDZF() {
-			_mainWindow = new _mainWindow();
+			// creating main window
+				_mainWindow = new _mainWindow();
+			// map/array of the plots
+				mapOfPlots.put(1, piotrkowska01);
+				mapOfPlots.put(2, piotrkowska02);
+				mapOfPlots.put(3, piotrkowska03);
+				mapOfPlots.put(4, piotrkowska04);
+				mapOfPlots.put(5, piotrkowska05);
+				mapOfPlots.put(6, piotrkowska06);
+				mapOfPlots.put(7, piotrkowska07);
+				mapOfPlots.put(8, piotrkowska08);
+				mapOfPlots.put(9, piotrkowska09);
+				mapOfPlots.put(10, piotrkowska10);
+			// button group of plots
+				plotRadioButtonsGroup.add(this.piotrkowska01.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska02.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska03.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska04.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska05.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska06.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska07.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska08.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska09.radioButton);
+				plotRadioButtonsGroup.add(this.piotrkowska10.radioButton);
 		}
 	
 	/***
 	 * methods
 	 * 
 	 */
+		
+		public static void setPlayerActiveNow(player xPlayer) {
+			playerActiveNow = xPlayer;
+		}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

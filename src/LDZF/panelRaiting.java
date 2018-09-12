@@ -12,10 +12,11 @@ public class panelRaiting extends JPanel {
 	/**
 	 * parameters/features
 	 */
-		private JPanel 
+		protected JPanel 
 						panelForLEDs = new JPanel(), 
 						panelForIcon = new JPanel();
-		private BorderLayout layout = new BorderLayout(1, 1);
+		protected BorderLayout layout = new BorderLayout(1, 1);
+		protected Dimension size = new Dimension(15,55);
 	
 	/**
 	 * constructors
@@ -27,15 +28,15 @@ public class panelRaiting extends JPanel {
 			 */
 				this.setLayout(layout);
 				this.setBackground(Color.WHITE);
-				this.setPreferredSize(new Dimension(15,55));
+				this.setPreferredSize(size);
 			/*
 			 * content
 			 */
 				this.add(panelForLEDs, layout.CENTER);
-					this.panelForLEDs.setPreferredSize(new Dimension(15, 30));
+					//this.panelForLEDs.setPreferredSize(new Dimension(15, 30));
 					this.panelForLEDs.setBackground(Color.YELLOW);
 				this.add(panelForIcon, layout.SOUTH);
-					this.panelForIcon.setPreferredSize(new Dimension(15, 15));
+					//this.panelForIcon.setPreferredSize(new Dimension(15, 15));
 					this.panelForIcon.setBackground(Color.ORANGE);
 		}
 	
