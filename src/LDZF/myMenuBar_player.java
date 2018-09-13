@@ -28,8 +28,8 @@ public class myMenuBar_player extends JMenuBar {
 			private int sizeY;
 		// content of the menu
 			//menu button
-				private myButton buttonPlayerAction = new myButton("PLAYER ACTION");
-				private myMenuPlayer menu = new myMenuPlayer();
+				//public myButton buttonPlayerAction = new myButton("PLAYER ACTION");
+				public myMenuPlayer menu = new myMenuPlayer();
 
 			//name of the player
 				private JPanel panelName = new JPanel();

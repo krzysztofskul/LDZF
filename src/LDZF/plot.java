@@ -32,14 +32,15 @@ public class plot extends JPanel implements MouseListener {
 			protected MatteBorder border = new MatteBorder(1,1,1,1, Color.DARK_GRAY);
 			protected BorderLayout layout = new BorderLayout();
 			protected myRadioButton radioButton = new myRadioButton("");
+			protected JPanel panelCenter = new JPanel();
 		/*
 		 * game features
 		 */
 			protected String name, owner;
 				private JLabel 
-								labelName = new JLabel();
-				private JLabel
-								labelOwner = new JLabel();
+								labelName = new JLabel(),
+								labelOwner = new JLabel(),
+								labelStatus = new JLabel();
 			protected double price;
 			protected int prestige, health;
 			protected enum StatusOfPlots {
@@ -59,7 +60,7 @@ public class plot extends JPanel implements MouseListener {
 						float xPrice, int xPrestige
 													) {
 			/*
-			 * constructing
+			 * setting construction of plot
 			 */
 				// size and localization
 					this.locX = xlocX;
@@ -70,9 +71,14 @@ public class plot extends JPanel implements MouseListener {
 					this.setBackground(background);
 					this.setBorder(border);
 					this.setLayout(this.layout);
+				//panelCenter
+					this.panelCenter.setOpaque(false);
+					this.panelCenter.setLayout(new FlowLayout(FlowLayout.CENTER));
+
 			/*
-			 * setting game features 
+			 * setting game features of plot
 			 */
+				// border NORTH and SOUTH
 				this.name = xStreetName+" "+Integer.toString(xNo); this.setName(this.name);
 					if (xNo % 2 != 0) {
 						this.add(labelName, layout.NORTH);
@@ -86,26 +92,30 @@ public class plot extends JPanel implements MouseListener {
 					labelName.setHorizontalAlignment(SwingConstants.CENTER);;
 					labelName.setFont(new myFont());
 					labelName.addMouseListener(this);
-				this.setOwner("<html>W£ASNOŒÆ<br>MIASTA</html>");
-					this.add(labelOwner, layout.CENTER);
-					this.setLabelOwner(this.owner);
+				// border CENTER
+				this.add(panelCenter, layout.CENTER);	
+					// labelOwner
+					this.panelCenter.add(labelOwner);	
+						this.setOwner("<html><p style=text-align:center>W£ASNOŒÆ<br/>MIASTA</p></html>");
+						this.setLabelOwner(this.owner);	
+					//labelStatus
+					this.panelCenter.add(labelStatus);
+						this.setStatus(StatusOfPlots.forsale);
+				// HIDDEN
 				this.price = xPrice;
 				this.prestige = xPrestige;
 				this.health = 100;
-				this.status = StatusOfPlots.forsale;
 		}
 	
 	/**
 	 * methods
 	 */
-		
-		public StatusOfPlots getStatus() {
-			return status;
-		}
-		
+		/*
+		 * owner
+		 */
 		public void setOwner(String x) {
 			this.owner = x;
-			this.setLabelOwner(this.owner);			
+			this.setLabelOwner(this.owner);		
 		}
 		
 		public void setOwner(player xPlayer) {
@@ -115,9 +125,35 @@ public class plot extends JPanel implements MouseListener {
 		
 		private void setLabelOwner (String xOwner) {
 			labelOwner.setText(this.owner);
-			//labelOwner.setHorizontalAlignment(SwingConstants.CENTER);
+			labelOwner.setHorizontalAlignment(SwingConstants.CENTER);
 			labelOwner.setFont(new myFont());
+
 		}
+		/*
+		 * status
+		 */
+		public StatusOfPlots getStatus() {
+			return status;
+		}
+		public void setStatus(StatusOfPlots x) {
+			this.status = x;
+			String y = this.status.toString();
+			this.setLabelStatus(y);
+		}
+		public void setLabelStatus(String y) {
+			labelStatus.setHorizontalAlignment(SwingConstants.CENTER);
+			labelStatus.setFont(new myFont());
+				labelStatus.setOpaque(false);
+			if (this.status == status.forsale) {
+				this.labelStatus.setText("na sprzeda¿!");
+				labelStatus.setVisible(true);
+				labelStatus.setForeground(Color.RED);
+			} else {
+				labelStatus.setVisible(false);
+				this.labelStatus.setText(y);
+			}
+		}
+		
 		/*
 		 * MouseListener
 		 */

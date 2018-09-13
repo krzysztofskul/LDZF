@@ -32,6 +32,7 @@ public class myMenuPlayer extends JMenu implements ActionListener {
 					this.menuItem_1.addActionListener(this);
 				this.add(menuItem_2);
 					this.menuItem_2.addActionListener(this);
+					this.menuItem_2.setEnabled(false);
 				this.add(menuItem_3);
 					this.menuItem_3.addActionListener(this);
 		}
@@ -43,27 +44,31 @@ public class myMenuPlayer extends JMenu implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			Object source = arg0.getSource();
-			if (source == menuItem_1) {
+			if (source == menuItem_1) { // BUY PLOT
 				//TO DEL TEST
 				//System.out.println("pressed menuItem_1 by player:"+this.getParent().getParent().getName());
 				//LDZF.institutionCityHall.setAnnouncement("pressed menuItem_1 by player:"+this.getParent().getParent().getName());		
 				// do action: BUY PLOT
 					if (LDZF.plotRadioButtonsGroup.getSelection() != null) {
-						LDZF.setPlayerActiveNow((player) this.getParent().getParent());
+						//LDZF.setPlayerActiveNow((player) this.getParent().getParent());
 						LDZF.playerActiveNow.buyPlot();
+						LDZF.setPlayerActiveNow();
 					} else {
 						LDZF.institutionCityHall.setAnnouncement("Wybierz najpierw dzia³kê do kupienia..");
 					}
-			} else if (source == menuItem_2) {
+			} else if (source == menuItem_2) { // SELL PLOT
 				//TO DEL TEST
-				System.out.println("pressed menuItem_2 by player:"+this.getParent().getParent().getName());
-				LDZF.institutionCityHall.setAnnouncement("pressed menuItem_2 by player:"+this.getParent().getParent().getName());
+				//System.out.println("pressed menuItem_2 by player:"+this.getParent().getParent().getName());
+				//LDZF.institutionCityHall.setAnnouncement("pressed menuItem_2 by player:"+this.getParent().getParent().getName());
 				// do action: ELL PLOT
 					//...
-			} else if (source == menuItem_3) {
+			} else if (source == menuItem_3) { // END ROUND
 				//TO DEL TEST
-				System.out.println("pressed menuItem_3 by player:"+this.getParent().getParent().getName());
-				LDZF.institutionCityHall.setAnnouncement("pressed menuItem_3 by player:"+this.getParent().getParent().getName());
+				//System.out.println("pressed menuItem_3 by player:"+this.getParent().getParent().getName());
+				//LDZF.institutionCityHall.setAnnouncement("pressed menuItem_3 by player:"+this.getParent().getParent().getName());
+				LDZF.plotRadioButtonsGroup.clearSelection();
+				LDZF.setPlayerActiveNow();
+				
 			}
 		}
 }

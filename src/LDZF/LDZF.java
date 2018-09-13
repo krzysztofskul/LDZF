@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import javax.swing.ButtonGroup;
 
@@ -66,7 +67,7 @@ public class LDZF {
 									player03 = Heinzelowie, 
 									player04 = Herbstowie,
 								// active player
-									playerActiveNow = player01;	
+									playerActiveNow = player02;	
 	/***
 	 * constructors
 	 */
@@ -74,7 +75,7 @@ public class LDZF {
 		public LDZF() {
 			// creating main window
 				_mainWindow = new _mainWindow();
-			// map/array of the plots
+			// setting map/array of the plots
 				mapOfPlots.put(1, piotrkowska01);
 				mapOfPlots.put(2, piotrkowska02);
 				mapOfPlots.put(3, piotrkowska03);
@@ -85,7 +86,7 @@ public class LDZF {
 				mapOfPlots.put(8, piotrkowska08);
 				mapOfPlots.put(9, piotrkowska09);
 				mapOfPlots.put(10, piotrkowska10);
-			// button group of plots
+			// setting button group of plots
 				plotRadioButtonsGroup.add(this.piotrkowska01.radioButton);
 				plotRadioButtonsGroup.add(this.piotrkowska02.radioButton);
 				plotRadioButtonsGroup.add(this.piotrkowska03.radioButton);
@@ -96,6 +97,9 @@ public class LDZF {
 				plotRadioButtonsGroup.add(this.piotrkowska08.radioButton);
 				plotRadioButtonsGroup.add(this.piotrkowska09.radioButton);
 				plotRadioButtonsGroup.add(this.piotrkowska10.radioButton);
+			// setting active player for the beginning of the game
+				setPlayerActiveNow();
+				
 		}
 	
 	/***
@@ -103,18 +107,37 @@ public class LDZF {
 	 * 
 	 */
 		
-		public static void setPlayerActiveNow(player xPlayer) {
-			playerActiveNow = xPlayer;
+		public static void setPlayerActiveNow() {
+			Random random = new Random();
+				int xPlayer = random.nextInt(4)+1;
+			switch(xPlayer) {
+				case 1:
+					playerActiveNow = player01;
+					break;
+				case 2:
+					playerActiveNow = player02;
+					break;
+				case 3:
+					playerActiveNow = player03;
+					break;
+				case 4:
+					playerActiveNow = player04;
+					break;
+			}
+			player01.checkStatus();
+			player02.checkStatus();
+			player03.checkStatus();
+			player04.checkStatus();
 		}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-			EventQueue.invokeLater(new Runnable() {
-				@Override
-				public void run() {
-					new LDZF();
-				}
-			});
-	}
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+				EventQueue.invokeLater(new Runnable() {
+					@Override
+					public void run() {
+						new LDZF();
+					}
+				});
+		}
 
 }

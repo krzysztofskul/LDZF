@@ -94,7 +94,7 @@ public /*abstract*/ class institution extends JPanel {
 	 */
 		
 		/*
-		 * getters nad setters
+		 * getters and setters
 		 */
 			public int getSizeX() {
 				return sizeX;
