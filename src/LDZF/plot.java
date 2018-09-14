@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -25,14 +26,16 @@ public class plot extends JPanel implements MouseListener {
 		/*
 		 * size and look features
 		 */
-			protected int sizeX = 90, sizeY = 90,
+			protected int sizeX = 110, sizeY = 110,
 							locX, locY;
 			protected Dimension size = new Dimension(sizeX, sizeY);
 			protected Color background = Color.YELLOW;
 			protected MatteBorder border = new MatteBorder(1,1,1,1, Color.DARK_GRAY);
 			protected BorderLayout layout = new BorderLayout();
+			protected GridLayout layoutGrid = new GridLayout(2,0);
 			protected myRadioButton radioButton = new myRadioButton("");
 			protected JPanel panelCenter = new JPanel();
+			protected JPanel panelTitle = new JPanel();
 		/*
 		 * game features
 		 */
@@ -71,9 +74,13 @@ public class plot extends JPanel implements MouseListener {
 					this.setBackground(background);
 					this.setBorder(border);
 					this.setLayout(this.layout);
+				//panelTitle
+					this.panelTitle.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+					//this.panelTitle.setOpaque(true);
+					this.panelTitle.setBackground(background.darker());
 				//panelCenter
 					this.panelCenter.setOpaque(false);
-					this.panelCenter.setLayout(new FlowLayout(FlowLayout.CENTER));
+					this.panelCenter.setLayout(layoutGrid);
 
 			/*
 			 * setting game features of plot
@@ -81,27 +88,41 @@ public class plot extends JPanel implements MouseListener {
 				// border NORTH and SOUTH
 				this.name = xStreetName+" "+Integer.toString(xNo); this.setName(this.name);
 					if (xNo % 2 != 0) {
-						this.add(labelName, layout.NORTH);
-						this.add(radioButton, layout.SOUTH);
+						this.add(panelTitle, layout.NORTH);
+						this.panelTitle.add(radioButton);
+						this.panelTitle.add(labelName);
+						
 					} else {
-						this.add(labelName, layout.SOUTH);
-						this.add(radioButton, layout.NORTH);
+						this.add(panelTitle, layout.SOUTH);
+						this.panelTitle.add(radioButton);
+						this.panelTitle.add(labelName);
 					}
 					radioButton.setEnabled(true);
 					labelName.setText(this.name);
-					labelName.setHorizontalAlignment(SwingConstants.CENTER);;
+					labelName.setHorizontalAlignment(SwingConstants.CENTER);
 					labelName.setFont(new myFont());
 					labelName.addMouseListener(this);
 				// border CENTER
-				this.add(panelCenter, layout.CENTER);	
-					// labelOwner
-					this.panelCenter.add(labelOwner);	
-						this.setOwner("<html><p style=text-align:center>W£ASNOŒÆ<br/>MIASTA</p></html>");
-						this.setLabelOwner(this.owner);	
-					//labelStatus
-					this.panelCenter.add(labelStatus);
-						this.setStatus(StatusOfPlots.forsale);
-				// HIDDEN
+				this.add(panelCenter, layout.CENTER);
+					if (xNo % 2 != 0) {
+						// labelOwner
+						this.panelCenter.add(labelOwner);
+							this.setOwner("<html><p style=text-align:center>W£ASNOŒÆ<br/>MIASTA</p></html>");
+							this.setLabelOwner(this.owner);
+						//labelStatus
+						this.panelCenter.add(labelStatus);
+							this.setStatus(StatusOfPlots.forsale);
+					} else {
+						//labelStatus
+						this.panelCenter.add(labelStatus);
+							this.setStatus(StatusOfPlots.forsale);
+						// labelOwner
+						this.panelCenter.add(labelOwner);
+							this.setOwner("<html><p style=text-align:center>W£ASNOŒÆ<br/>MIASTA</p></html>");
+							this.setLabelOwner(this.owner);
+	
+					}
+				// HIDDEN P/F
 				this.price = xPrice;
 				this.prestige = xPrestige;
 				this.health = 100;

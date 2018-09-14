@@ -65,4 +65,8 @@ public class myMenuBar extends JMenuBar {
 		public void setSizeY(int sizeY) {
 			this.sizeY = sizeY;
 		}
+		
+		public void changeWindowName(String x) {
+			this.windowName.setText(x);
+		}
 }

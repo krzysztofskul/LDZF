@@ -8,6 +8,8 @@ import java.util.Random;
 
 import javax.swing.ButtonGroup;
 
+import calendar.calendar;
+
 public class LDZF {
 	
 	/**
@@ -25,6 +27,7 @@ public class LDZF {
 	 * parameters
 	 */
 		public static _mainWindow _mainWindow;
+		public static calendar calendar;
 		public static plotWindowInfo plotWindowInfo = new plotWindowInfo();
 		public static Color colorBaseBrown = new Color(102, 26, 0);
 		public static Color colorBasePapyrus = new Color(201,152,104);
@@ -34,16 +37,16 @@ public class LDZF {
 		public static institution institutionKokolobolo = new institution("KOKOLOBOLO");
 		
 		public static plot 	// added in panelGame.java
-							piotrkowska02 = new plot("Piotrkowska", 2, 110, 100, 1000000.00f, 10),
-							piotrkowska04 = new plot("Piotrkowska", 4, 200, 100, 1000000.00f, 10),
-							piotrkowska06 = new plot("Piotrkowska", 6, 290, 100, 900000.00f, 9),
-							piotrkowska08 = new plot("Piotrkowska", 8, 380, 100, 900000.00f, 9),
-							piotrkowska10 = new plot("Piotrkowska", 10, 470, 100, 900000.00f, 9),
+							piotrkowska02 = new plot("Piotrkowska", 2, 110, 80, 1000000.00f, 10),
+							piotrkowska04 = new plot("Piotrkowska", 4, 220, 80, 1000000.00f, 10),
+							piotrkowska06 = new plot("Piotrkowska", 6, 330, 80, 900000.00f, 9),
+							piotrkowska08 = new plot("Piotrkowska", 8, 440, 80, 900000.00f, 9),
+							piotrkowska10 = new plot("Piotrkowska", 10, 550, 80, 900000.00f, 9),
 							piotrkowska01 = new plot("Piotrkowska", 1, 110, 200, 1000000.00f, 10),
-							piotrkowska03 = new plot("Piotrkowska", 3, 200, 200, 1000000.00f, 10),
-							piotrkowska05 = new plot("Piotrkowska", 5, 290, 200, 900000.00f, 9),
-							piotrkowska07 = new plot("Piotrkowska", 7, 380, 200, 900000.00f, 9),
-							piotrkowska09 = new plot("Piotrkowska", 9, 470, 200, 900000.00f, 9);
+							piotrkowska03 = new plot("Piotrkowska", 3, 220, 200, 1000000.00f, 10),
+							piotrkowska05 = new plot("Piotrkowska", 5, 330, 200, 900000.00f, 9),
+							piotrkowska07 = new plot("Piotrkowska", 7, 440, 200, 900000.00f, 9),
+							piotrkowska09 = new plot("Piotrkowska", 9, 550, 200, 900000.00f, 9);
 		
 		public static Map<Integer, plot> mapOfPlots = new HashMap<Integer, plot>();
 		
@@ -75,6 +78,7 @@ public class LDZF {
 		public LDZF() {
 			// creating main window
 				_mainWindow = new _mainWindow();
+				calendar = new calendar();
 			// setting map/array of the plots
 				mapOfPlots.put(1, piotrkowska01);
 				mapOfPlots.put(2, piotrkowska02);
