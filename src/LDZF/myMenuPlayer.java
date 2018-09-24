@@ -16,7 +16,7 @@ public class myMenuPlayer extends JMenu implements ActionListener {
 	 */
 		private JMenuItem menuItem_1 = new JMenuItem("KUP DZIA£KÊ");
 		private JMenuItem menuItem_2 = new JMenuItem("SPRZEDAJ DZIA£KÊ");
-		private JMenuItem menuItem_3 = new JMenuItem("ZAKOÑCZ RUNDÊ");
+		private JMenuItem menuItem_3 = new JMenuItem("ZAKOÑCZ RUCH");
 	/**
 	 * constructors
 	 */
@@ -52,6 +52,7 @@ public class myMenuPlayer extends JMenu implements ActionListener {
 					if (LDZF.plotRadioButtonsGroup.getSelection() != null) {
 						//LDZF.setPlayerActiveNow((player) this.getParent().getParent());
 						LDZF.playerActiveNow.buyPlot();
+						LDZF.calendar.countRound(1);
 						LDZF.setPlayerActiveNow();
 					} else {
 						LDZF.institutionCityHall.setAnnouncement("Wybierz najpierw dzia³kê do kupienia..");
@@ -67,6 +68,7 @@ public class myMenuPlayer extends JMenu implements ActionListener {
 				//System.out.println("pressed menuItem_3 by player:"+this.getParent().getParent().getName());
 				//LDZF.institutionCityHall.setAnnouncement("pressed menuItem_3 by player:"+this.getParent().getParent().getName());
 				LDZF.plotRadioButtonsGroup.clearSelection();
+				LDZF.calendar.countRound(1);
 				LDZF.setPlayerActiveNow();
 				
 			}

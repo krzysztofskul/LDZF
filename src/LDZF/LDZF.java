@@ -8,7 +8,7 @@ import java.util.Random;
 
 import javax.swing.ButtonGroup;
 
-import calendar.calendar;
+import calendar.calendar_V2;
 
 public class LDZF {
 	
@@ -27,7 +27,7 @@ public class LDZF {
 	 * parameters
 	 */
 		public static _mainWindow _mainWindow;
-		public static calendar calendar;
+		public static calendar_V2 calendar;
 		public static plotWindowInfo plotWindowInfo = new plotWindowInfo();
 		public static Color colorBaseBrown = new Color(102, 26, 0);
 		public static Color colorBasePapyrus = new Color(201,152,104);
@@ -78,7 +78,7 @@ public class LDZF {
 		public LDZF() {
 			// creating main window
 				_mainWindow = new _mainWindow();
-				calendar = new calendar();
+				calendar = new calendar_V2();
 			// setting map/array of the plots
 				mapOfPlots.put(1, piotrkowska01);
 				mapOfPlots.put(2, piotrkowska02);
