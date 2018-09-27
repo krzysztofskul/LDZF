@@ -2,6 +2,7 @@ package LDZF;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -36,6 +37,18 @@ public class myButton extends JButton implements MouseListener {
 				}
 				case "ENTER": {
 					this.createButtonEnter();
+					break;
+				}
+				case "TAKE CARD": {
+					this.createButtonTakeCard();
+					break;
+				}
+				case "PLAY CARD": {
+					this.createButtonPlayCard();
+					break;
+				}
+				case "THROW OUT CARD": {
+					this.createButtonThrowOutCard();
 					break;
 				}
 				default: {
@@ -81,6 +94,30 @@ public class myButton extends JButton implements MouseListener {
 			this.setPreferredSize(new Dimension (50, 50)); // width Y ??
 			this.setBackground(Color.YELLOW);
 			this.setBorder(new MatteBorder(1,1,1,1, LDZF.colorBaseBrown));
+		}
+		private void createButtonTakeCard() {
+			this.setTogetherFeatures();
+			this.setText(" DOBIERZ KARTÊ ");
+			this.setPreferredSize(new Dimension (40, 60)); // width Y ??
+			this.setBackground(Color.ORANGE);
+			//this.setBorder(new MatteBorder(1,1,1,1, LDZF.colorBaseBrown));
+			this.setFont(new myFont());
+		}
+		private void createButtonPlayCard() {
+			this.setTogetherFeatures();
+			this.setText(" ZAGRAJ ");
+			this.setPreferredSize(new Dimension (30, 15)); // width Y ??
+			this.setBackground(Color.ORANGE);
+			//this.setBorder(new MatteBorder(1,1,1,1, LDZF.colorBaseBrown));
+			this.setFont(new myFont());
+		}
+		private void createButtonThrowOutCard() {
+			this.setTogetherFeatures();
+			this.setText(" ODRZUÆ ");
+			this.setPreferredSize(new Dimension (30, 15)); // width Y ??
+			this.setBackground(Color.ORANGE);
+			//this.setBorder(new MatteBorder(1,1,1,1, LDZF.colorBaseBrown));
+			this.setFont(new myFont());
 		}
 		private void createButtonDefault() {
 			this.setTogetherFeatures();

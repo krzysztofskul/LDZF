@@ -54,6 +54,8 @@ public class player extends JPanel {
 				private panelRaiting panelRaitingHealth = new panelRaiting("Health");
 			private int familySize = 0;
 				private panelRaiting panelRaitingFamilySize = new panelRaiting("Family size");
+				
+			public playerHand playerHand;
 	
 	/**
 	 * constructors
@@ -93,6 +95,8 @@ public class player extends JPanel {
 					this.panelRaitingPrestige.setPanelFroLEDs(this.getPrestige());
 					this.panelRaitingHealth.setPanelFroLEDs(this.getHealth());
 					this.panelRaitingFamilySize.setPanelFroLEDs(this.getFamilySize());
+				// creating player hand
+					playerHand = new playerHand(this.getName(), this.sizeX, this.sizeY);
 
 		}
 
@@ -146,19 +150,22 @@ public class player extends JPanel {
 				if (this.status == status.active) {
 					this.setBorder(this.borderActive);
 					this.menuBar.menu.setEnabled(true);
+					this.playerHand.setStatus(this.playerHand.status.active);
 				} else if (this.status == status.notActive) {
 					this.setBorder(this.borderNotActive);
 					this.menuBar.menu.setEnabled(false);
+					this.playerHand.setStatus(this.playerHand.status.notActive);
 				} else {
 					this.setBorder(this.border);
-					this.menuBar.menu.setEnabled(false);
-					
+					this.menuBar.menu.setEnabled(false);	
 				}
 			}			
 			public void checkStatus() {
 				if (this == LDZF.playerActiveNow) {
 					this.setStatus(status.active);
-				} else this.setStatus(status.notActive);
+				} else {
+					this.setStatus(status.notActive);
+				}
 			}
 		
 		/*

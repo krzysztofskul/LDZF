@@ -33,7 +33,7 @@ public class calendar_V2 extends JWindow {
 			private BorderLayout layoutWindow;
 			private BorderLayout layoutPanelContent = new BorderLayout();
 			private GridLayout layoutPanelCalendar = new GridLayout(7,7);
-			private Border borderContentPanel;
+			public static Border borderContentPanel;
 			private JPanel panelContent = new JPanel();
 			private JPanel panelCalendar= new JPanel();
 			private JPanel panelLabelRoundCounter = new JPanel();
@@ -43,10 +43,10 @@ public class calendar_V2 extends JWindow {
 			private day[] array_daysForThisMonth;
 
 		//.
-			private int movesInRound = 0;
+			private int tournsInRound = 0;
 			private int roundsCounter = 1;
 			private JLabel labelRoundsCounter = new JLabel("...");
-			private GregorianCalendar dGameStart = new GregorianCalendar(/*1820, 8, 18*/2018, 0, 31), // 18.09.1820;
+			private GregorianCalendar dGameStart = new GregorianCalendar(1820, 8, 18), // 18.09.1820;
 										dTodayRound = dGameStart,
 										dFirstDayInThisMonth;
 			private int noOfFirstDayInThisMonth, noOfDaysInThisMonth;
@@ -103,7 +103,7 @@ public class calendar_V2 extends JWindow {
 						this.panelContent.add(panelLabelRoundCounter, layoutPanelContent.SOUTH);
 							this.panelLabelRoundCounter.add(labelRoundsCounter);
 				//countRound for first
-					this.countRound(1);			
+					//this.countRound(1);			// moved to LDZF.java
 		}				
 	
 	/**
@@ -152,7 +152,7 @@ public class calendar_V2 extends JWindow {
 				}
 			}
 			
-			System.out.println("Nr pierwzego dnia miesiaca (przesuniêcie kalendarza) to: "+this.getNoOfFirstDayInThisMonth());
+			//System.out.println("Nr pierwzego dnia miesiaca (przesuniêcie kalendarza) to: "+this.getNoOfFirstDayInThisMonth());
 		}
 		
 		public int getNoOfDaysInThisMonth() {
@@ -166,7 +166,7 @@ public class calendar_V2 extends JWindow {
 		public void createDaysForThisMonth() {
 			// create array with length getNoOfDaysInThisMonth
 				if (this.array_daysForThisMonth != null) {
-					System.out.println("czyszczê tablice dni array_daysForThisMonth, bo by³a zajêca");
+					//System.out.println("czyszczê tablice dni array_daysForThisMonth, bo by³a zajêca");
 					for (int i=0; i<this.array_daysForThisMonth.length; i++) {
 						this.array_daysForThisMonth[i] = null;
 
@@ -204,11 +204,11 @@ public class calendar_V2 extends JWindow {
 		
 		public void countRound(int x) {	
 			// check if it is time for change round/day
-				if (this.movesInRound < 4) { 	// if not next round/day
-					this.movesInRound += x;
+				if (this.tournsInRound < 4) { 	// if not next round/day
+					this.tournsInRound += x;
 				} else {						// if next round/day
 					this.roundsCounter += 1;
-					this.movesInRound = 1;
+					this.tournsInRound = 1;
 					
 					this.dTodayRound.add(Calendar.DAY_OF_MONTH, 1);
 					/*
@@ -234,7 +234,7 @@ public class calendar_V2 extends JWindow {
 				//this.dTodayRound.add(Calendar.DAY_OF_MONTH, 30);
 
 			//set label of today date
-				this.labelRoundsCounter.setText("Ruch: "+Integer.toString(this.movesInRound)+" / Runda: "
+				this.labelRoundsCounter.setText("Tura: "+Integer.toString(this.tournsInRound)+" / Runda: "
 														+Integer.toString(this.roundsCounter)
 														+" ("+this.dTodayRound.get(Calendar.YEAR)
 														+"."+this.dTodayRound.get(Calendar.MONTH)
@@ -251,7 +251,7 @@ public class calendar_V2 extends JWindow {
 	 * nested classes
 	 */
 	
-		public class panelForCalendarDay extends JPanel {
+		private class panelForCalendarDay extends JPanel {
 		
 			/**
 			 * p/f
@@ -317,7 +317,7 @@ public class calendar_V2 extends JWindow {
 				}
 		}
 		
-		public class day extends JPanel {
+		private class day extends JPanel {
 			
 			/**
 			 * p/f

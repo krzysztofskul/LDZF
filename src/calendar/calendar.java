@@ -25,7 +25,7 @@ import LDZF.myMenuItem;
 import LDZF.LDZF;
 import LDZF.myButton;
 
-public class calendar extends JWindow {
+public class calendar extends JWindow {  /* TO DELETE TO DELETE TO DELETE TO DELETE TO DELETE TO DELETE TO DELETE TO DELETE TO DELETE TO DELETE TO DELETE */
 
 	/**
 	 * parameters/features

@@ -64,4 +64,5 @@ public class _mainWindow extends JWindow {
 		public double getScreenHeight() {
 			return screenHeight;
 		}
+		
 }
