@@ -196,7 +196,7 @@ public class player extends JPanel {
 									// check if actual player have enough money
 									// if player have money
 										// change owner of the plot
-											plotToBuy.setOwner(this);
+											plotToBuy.setOwner(this.getName());
 										// change player's budget and prestige
 											this.setBudget(-plotToBuy.price);
 											this.setPrestige(+plotToBuy.prestige);

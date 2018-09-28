@@ -123,9 +123,9 @@ public class plot extends JPanel implements MouseListener {
 	
 					}
 				// HIDDEN P/F
-				this.price = xPrice;
-				this.prestige = xPrestige;
-				this.health = 100;
+					this.price = xPrice;
+					this.prestige = xPrestige;
+					this.health = 100;
 		}
 	
 	/**
@@ -144,6 +144,10 @@ public class plot extends JPanel implements MouseListener {
 			this.setLabelOwner(this.owner);
 		}
 		
+		public String getOwner() {
+			return this.owner;
+		}
+		
 		private void setLabelOwner (String xOwner) {
 			labelOwner.setText(this.owner);
 			labelOwner.setHorizontalAlignment(SwingConstants.CENTER);
@@ -153,28 +157,34 @@ public class plot extends JPanel implements MouseListener {
 		/*
 		 * status
 		 */
-		public StatusOfPlots getStatus() {
-			return status;
-		}
-		public void setStatus(StatusOfPlots x) {
-			this.status = x;
-			String y = this.status.toString();
-			this.setLabelStatus(y);
-		}
-		public void setLabelStatus(String y) {
-			labelStatus.setHorizontalAlignment(SwingConstants.CENTER);
-			labelStatus.setFont(new myFont());
-				labelStatus.setOpaque(false);
-			if (this.status == status.forsale) {
-				this.labelStatus.setText("na sprzeda¿!");
-				labelStatus.setVisible(true);
-				labelStatus.setForeground(Color.RED);
-			} else {
-				labelStatus.setVisible(false);
-				this.labelStatus.setText(y);
+			public StatusOfPlots getStatus() {
+				return status;
 			}
-		}
-		
+			public void setStatus(StatusOfPlots x) {
+				this.status = x;
+				String y = this.status.toString();
+				this.setLabelStatus(y);
+			}
+			public void setLabelStatus(String y) {
+				labelStatus.setHorizontalAlignment(SwingConstants.CENTER);
+				labelStatus.setFont(new myFont());
+					labelStatus.setOpaque(false);
+				if (this.status == status.forsale) {
+					this.labelStatus.setText("na sprzeda¿!");
+					labelStatus.setVisible(true);
+					labelStatus.setForeground(Color.RED);
+				} else {
+					labelStatus.setVisible(false);
+					this.labelStatus.setText(y);
+				}
+			}
+		/*
+		 * health
+		 */
+			public void setHealth (int xHealth) {
+				this.health += xHealth;
+			}
+			
 		/*
 		 * MouseListener
 		 */

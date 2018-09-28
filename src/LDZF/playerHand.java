@@ -23,12 +23,15 @@ public class playerHand extends JPanel {
 			public States status;
 		private Dimension dimActive,
 							dimNotActive;
+		public player owner;
 	
 	/**
 	 * constructors
 	 */
 		public playerHand(String x, int xSizeX, int xSizeY) {
 			// configuration
+				this.setName(x);
+					System.out.println("Utworzy³em d³oñ gracza: "+this.getName());
 				this.sizeX = xSizeX;
 				this.sizeY = xSizeY;
 				this.dimActive = new Dimension (sizeX, sizeY);

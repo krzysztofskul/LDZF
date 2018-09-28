@@ -18,6 +18,7 @@ import javax.swing.border.MatteBorder;
 import LDZF.LDZF;
 import LDZF.myButton;
 import LDZF.playerHand;
+import LDZF.plot;
 
 public class card extends JPanel implements action, ActionListener {
 
@@ -142,6 +143,54 @@ public class card extends JPanel implements action, ActionListener {
 					//this.description = "karta testowa nr 2 - nie wykonuje ¿adnej akcji";
 					System.out.println("Akcja TEST 04 !!!");
 					break;
+				case "Podpalenia na Piotrkowskiej":
+					//this.description = "karta testowa nr 2 - nie wykonuje ¿adnej akcji";
+					System.out.println("Podpalenie wszystkich dzia³ek na ul. Piotrkowskiej !!!");
+					LDZF.piotrkowska02.setHealth(-15);
+					LDZF.piotrkowska04.setHealth(-15);
+					LDZF.piotrkowska06.setHealth(-15);
+					LDZF.piotrkowska08.setHealth(-15);
+					LDZF.piotrkowska10.setHealth(-15);
+					LDZF.piotrkowska01.setHealth(-15);
+					LDZF.piotrkowska03.setHealth(-15);
+					LDZF.piotrkowska05.setHealth(-15);
+					LDZF.piotrkowska07.setHealth(-15);
+					LDZF.piotrkowska09.setHealth(-15);
+					break;
+				case "Ubezpieczenie dzia³ki":
+					if (LDZF.piotrkowska02.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska02.setHealth(10);
+					}
+					if (LDZF.piotrkowska04.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska04.setHealth(10);
+					}
+					if (LDZF.piotrkowska06.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska06.setHealth(10);
+					}
+					if (LDZF.piotrkowska08.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska08.setHealth(10);
+					}
+					if (LDZF.piotrkowska10.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska10.setHealth(10);
+					}
+					if (LDZF.piotrkowska01.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska01.setHealth(10);
+					}
+					if (LDZF.piotrkowska03.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska03.setHealth(10);
+					}
+					if (LDZF.piotrkowska05.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska05.setHealth(10);
+					}
+					if (LDZF.piotrkowska07.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska07.setHealth(10);
+					}
+					if (LDZF.piotrkowska09.getOwner() == this.owner.getParent().getName()) {
+						LDZF.piotrkowska09.setHealth(10);
+					}
+					//System.out.println("W³aœciciel dzia³ki piotrkowska01: "+LDZF.piotrkowska01.getOwner());
+					//System.out.println("W³aœcicielme zagranej karty ubezbieczenie by³: "+this.owner.getParent().getName());
+					break;
 				default:
 					System.out.println("Akcja default !!!");
 					break;
@@ -177,7 +226,17 @@ public class card extends JPanel implements action, ActionListener {
 					this.putCardBack(LDZF.cardTest04);
 				LDZF.calendar.countRound(1);
 				LDZF.setPlayerActiveNow();
-			}
+			} else if (source==LDZF.cardIncendiaryAllPiotrkowska.buttonPlay) {
+					LDZF.cardIncendiaryAllPiotrkowska.cardAction();
+					this.putCardBack(LDZF.cardIncendiaryAllPiotrkowska);
+				LDZF.calendar.countRound(1);
+				LDZF.setPlayerActiveNow();
+			} else if (source==LDZF.cardPlotInsurance.buttonPlay) {
+				LDZF.cardPlotInsurance.cardAction();
+					this.putCardBack(LDZF.cardPlotInsurance);
+				LDZF.calendar.countRound(1);
+				LDZF.setPlayerActiveNow();
+		}
 		}
 		
 		/*

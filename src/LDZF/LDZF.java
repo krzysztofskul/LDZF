@@ -77,7 +77,9 @@ public class LDZF {
 							cardTest01 = new cards.card("Test01"),
 							cardTest02 = new cards.card("Test02"),
 							cardTest03 = new cards.card("Test03-default"),
-							cardTest04 = new cards.card("Test04-attackplayers");
+							cardTest04 = new cards.card("Test04-attackplayers"),
+							cardIncendiaryAllPiotrkowska = new cards.card("Podpalenia na Piotrkowskiej"),
+							cardPlotInsurance = new cards.card("Ubezpieczenie dzia³ki");
 		public static cards.card[] allCardsStack;		
 		
 	/***
@@ -118,6 +120,8 @@ public class LDZF {
 					allCardsStack[2] = cardTest02;
 					allCardsStack[3] = cardTest03;
 					allCardsStack[4] = cardTest04;
+					allCardsStack[5] = cardIncendiaryAllPiotrkowska;
+					allCardsStack[6] = cardPlotInsurance;
 				//System.out.println("Stworzy³em tablice z: "+cards.card.getNoOfAllCards()+" kart");
 				//System.out.println("I zatem tablica kart ma d³ugoœæ: "+allCardsStack.length);
 				//System.out.println("Na poz. [0] jest karta: "+allCardsStack[0].getName());
